@@ -1,8 +1,12 @@
 # Lucija Perković
+-------------------------------------------
 ### License CC BY
 #### This license lets others distribute, remix, adapt, and build upon your work, even commercially, as long as they credit you for the original creation. This is the most accommodating of licenses offered. Recommended for maximum dissemination and use of licensed materials.
+-------------------------------------------
 ##### Version 1.0
+-------------------------------------------
 ##### hrvatski
+-------------------------------------------
 #### prosjBrPosjetiteljaGodisnje je podatak koji sam našla za zadnjih par godina, što više sam pokušala da bude svježije
 #### klima atribut nije skroz točan za neke parkove, ali je za većinu jako precizan (nisam mogla naći točno za park nego za područje otprilike gdje se nalazi park)
 #### lokacija je atribut koji specificira u kojem dijelu države u kojoj je nacionalni park se nalazi taj nacionalni park
