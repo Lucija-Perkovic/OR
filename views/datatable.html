@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="hr">
+    <head>
+        <title>Datatable</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Baza podataka nacionalnih parkova">
+        <meta name="author" content="Lucija Perković">
+        <meta name="keywords" content="national parks, nacionalni parkovi, Yellowstone, Plitvička jezera">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="../css/main.css">
+    </head>
+    <body>
+        <main>
+            <h1>Polje za pretragu</h1>
+            <div>
+                <input type="text" name="value" placeholder="Unesite vrijednost" class="input_holder">
+                <p class="p">Po ovoj vrijednosti će se pretraživati podaci.</p>
+            </div>
+            
+            <div>
+                <select name="search" id="search_id" class="selector">
+                    <option value="wildcard">Sva polja (wildcard)</option>
+                    <option value="name">Ime</option>
+                    <option value="lastname">Prezime</option>
+                </select>
+            </div>
+            <br>
+
+            <div>
+                <input type="button" id="clickme" value="Prikaži" class="button"/>
+            </div>
+            
+            <br><br>
+            <div id = "displaytable">
+                <table id = "displaytable2" class="national_parks">
+                    <thead>
+                        <tr class="table_head">
+                            <th>Naziv parka</th>
+                            <th>Datum osnutka</th> 
+                            <th>Država</th>
+                            <th>Lokacija</th>
+                            <th>Wikipedia stranica</th> 
+                            <th>Prosječni broj posjetitelja godišnje</th>
+                            <th>Površina</th>
+                            <th>Nativna vrsta</th> 
+                            <th>Službena stranica</th>
+                            <th>Klima</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let park of nac_parkovi) { %>
+                            <tr>
+                                <th><%= park.nazivPark%></th>
+                                <th><%park.%></th> 
+                                <th>Država</th>
+                                <th>Lokacija</th>
+                                <th>Wikipedia stranica</th> 
+                                <th>Prosječni broj posjetitelja godišnje</th>
+                                <th>Površina</th>
+                                <th>Nativna vrsta</th> 
+                                <th>Službena stranica</th>
+                                <th>Klima</th> 
+                            </tr>
+                        <%>}<%>
+                    </tbody>
+                </table>
+            </div>
+            
+        </main>
+        
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+  
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
+        <script>
+            
+        </script>
+    </body>
+</html>
