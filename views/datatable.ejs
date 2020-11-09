@@ -26,10 +26,13 @@
                 <option value="lokacija">Lokacija</option>
                 <option value="nativnevrste">Nativna vrsta</option>
                 <option value="klima">Klima</option>
-                <option value="sluzbenastranica">Službena stranica</option>
+                <option value="wikipediastranica">Wiki Handle</option>
+                <option value="povrsina">Površina</option>
+                <option value="prosjbrposjetiteljagodisnje">Prosječni broj posjetitelja godišnje</option>
+                <option value="godinaosnutka">Godina osnutka</option>
             </select>
             
-            <br>
+            <br><br><br>
 
             <div>
                 <input type="button" id="clickme" value="Prikaži" class="button" onclick="myFunction()"/>
@@ -43,12 +46,12 @@
                 <thead>
                     <tr class="table_head">
                         <th>Naziv parka</th>
-                        <th>Datum osnutka</th> 
+                        <th>Godina osnutka</th> 
                         <th>Država</th>
                         <th>Lokacija</th>
                         <th>Wikipedia stranica</th> 
                         <th>Prosječni broj posjetitelja godišnje</th>
-                        <th>Površina</th>
+                        <th>Površina (km na kvadrat)</th>
                         <th>Nativna vrsta</th> 
                         <th>Službena stranica</th>
                         <th>Klima</th>
@@ -59,13 +62,12 @@
                         
                         <tr>
                             <th class = "nazivparka"><%=park.nazivparka%></th>
-                            <th><%=park.datumosnutka%></th> 
+                            <th class="godinaosnutka"><%=park.godinaosnutka%></th> 
                             <th class="drzava"><%=park.drzava%></th>
                             <th class="lokacija"><%=park.lokacija%></th>
                             <th class="wikipediastranica"><%=park.wikipediastranica%></th> 
-                            <th><%=park.prosjbrposjetiteljagodisnje%></th>
-                            <th><%=park.povrsina%></th>
-            
+                            <th class="prosjbrposjetiteljagodisnje"><%=park.prosjbrposjetiteljagodisnje%></th>
+                            <th class="povrsina"><%=park.povrsina%></th>
                             <th class="nativnevrste">
                                 <% let br = 1 %>
                                 <% for (let vrsta of park.nativnevrste) {%>
@@ -74,7 +76,7 @@
                                     <br>
                                 <%}%>
                             </th> 
-                            <th class="sluzbenastranica"><%=park.sluzbenastranica%></th>
+                            <th class="sluzbenastranica"><a href="<%=park.sluzbenastranica%>">link</a></th>
                             <th class="klima"><%=park.klima%></th> 
                         </tr>
                     <% } %>
@@ -105,8 +107,6 @@
                                 
                                 if (th) {
                                     txtValue = th.textContent || th.innerText;
-                                    console.log(txtValue);
-                                    
                                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
                                         tr[i].style.display = "";
                                     } 
