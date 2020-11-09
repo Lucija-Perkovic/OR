@@ -4,13 +4,14 @@ const db = require('../db');
 
 router.get('/', async function (req, res) {
     
-    const nac_parkovi = (await db.query('SELECT * FROM nacionalni_parkovi')).rows;
-
+    const nac_parkovi = (await db.query('SELECT * FROM nacionalni_parkovi'));
+    
 
 
     res.render('datatable', {
         title: 'Datatable',
-        nac_parkovi: nac_parkovi.rows,
+        nac_parkovi: nac_parkovi,
+        
     });
 });
 
