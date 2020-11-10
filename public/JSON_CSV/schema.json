@@ -1,0 +1,620 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "nazivparka": {
+          "type": "string"
+        },
+        "datumosnutka": {
+          "type": "string"
+        },
+        "drzava": {
+          "type": "string"
+        },
+        "lokacija": {
+          "type": "string"
+        },
+        "wikipediastranica": {
+          "type": "string"
+        },
+        "prosjbrposjetiteljagodisnje": {
+          "type": "integer"
+        },
+        "povrsina": {
+          "type": "number"
+        },
+        "sluzbenastranica": {
+          "type": "string"
+        },
+        "klima": {
+          "type": "string"
+        },
+        "nativnevrste": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "nazivparka",
+        "datumosnutka",
+        "drzava",
+        "lokacija",
+        "wikipediastranica",
+        "prosjbrposjetiteljagodisnje",
+        "povrsina",
+        "sluzbenastranica",
+        "klima",
+        "nativnevrste",
+        "id"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "nazivparka": {
+          "type": "string"
+        },
+        "datumosnutka": {
+          "type": "string"
+        },
+        "drzava": {
+          "type": "string"
+        },
+        "lokacija": {
+          "type": "string"
+        },
+        "wikipediastranica": {
+          "type": "string"
+        },
+        "prosjbrposjetiteljagodisnje": {
+          "type": "integer"
+        },
+        "povrsina": {
+          "type": "integer"
+        },
+        "sluzbenastranica": {
+          "type": "string"
+        },
+        "klima": {
+          "type": "string"
+        },
+        "nativnevrste": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "nazivparka",
+        "datumosnutka",
+        "drzava",
+        "lokacija",
+        "wikipediastranica",
+        "prosjbrposjetiteljagodisnje",
+        "povrsina",
+        "sluzbenastranica",
+        "klima",
+        "nativnevrste",
+        "id"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "nazivparka": {
+          "type": "string"
+        },
+        "datumosnutka": {
+          "type": "string"
+        },
+        "drzava": {
+          "type": "string"
+        },
+        "lokacija": {
+          "type": "string"
+        },
+        "wikipediastranica": {
+          "type": "string"
+        },
+        "prosjbrposjetiteljagodisnje": {
+          "type": "integer"
+        },
+        "povrsina": {
+          "type": "number"
+        },
+        "sluzbenastranica": {
+          "type": "string"
+        },
+        "klima": {
+          "type": "string"
+        },
+        "nativnevrste": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "nazivparka",
+        "datumosnutka",
+        "drzava",
+        "lokacija",
+        "wikipediastranica",
+        "prosjbrposjetiteljagodisnje",
+        "povrsina",
+        "sluzbenastranica",
+        "klima",
+        "nativnevrste",
+        "id"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "nazivparka": {
+          "type": "string"
+        },
+        "datumosnutka": {
+          "type": "string"
+        },
+        "drzava": {
+          "type": "string"
+        },
+        "lokacija": {
+          "type": "string"
+        },
+        "wikipediastranica": {
+          "type": "string"
+        },
+        "prosjbrposjetiteljagodisnje": {
+          "type": "integer"
+        },
+        "povrsina": {
+          "type": "integer"
+        },
+        "sluzbenastranica": {
+          "type": "string"
+        },
+        "klima": {
+          "type": "string"
+        },
+        "nativnevrste": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "nazivparka",
+        "datumosnutka",
+        "drzava",
+        "lokacija",
+        "wikipediastranica",
+        "prosjbrposjetiteljagodisnje",
+        "povrsina",
+        "sluzbenastranica",
+        "klima",
+        "nativnevrste",
+        "id"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "nazivparka": {
+          "type": "string"
+        },
+        "datumosnutka": {
+          "type": "string"
+        },
+        "drzava": {
+          "type": "string"
+        },
+        "lokacija": {
+          "type": "string"
+        },
+        "wikipediastranica": {
+          "type": "string"
+        },
+        "prosjbrposjetiteljagodisnje": {
+          "type": "integer"
+        },
+        "povrsina": {
+          "type": "integer"
+        },
+        "sluzbenastranica": {
+          "type": "string"
+        },
+        "klima": {
+          "type": "string"
+        },
+        "nativnevrste": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "nazivparka",
+        "datumosnutka",
+        "drzava",
+        "lokacija",
+        "wikipediastranica",
+        "prosjbrposjetiteljagodisnje",
+        "povrsina",
+        "sluzbenastranica",
+        "klima",
+        "nativnevrste",
+        "id"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "nazivparka": {
+          "type": "string"
+        },
+        "datumosnutka": {
+          "type": "string"
+        },
+        "drzava": {
+          "type": "string"
+        },
+        "lokacija": {
+          "type": "string"
+        },
+        "wikipediastranica": {
+          "type": "string"
+        },
+        "prosjbrposjetiteljagodisnje": {
+          "type": "integer"
+        },
+        "povrsina": {
+          "type": "integer"
+        },
+        "sluzbenastranica": {
+          "type": "string"
+        },
+        "klima": {
+          "type": "string"
+        },
+        "nativnevrste": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "nazivparka",
+        "datumosnutka",
+        "drzava",
+        "lokacija",
+        "wikipediastranica",
+        "prosjbrposjetiteljagodisnje",
+        "povrsina",
+        "sluzbenastranica",
+        "klima",
+        "nativnevrste",
+        "id"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "nazivparka": {
+          "type": "string"
+        },
+        "datumosnutka": {
+          "type": "string"
+        },
+        "drzava": {
+          "type": "string"
+        },
+        "lokacija": {
+          "type": "string"
+        },
+        "wikipediastranica": {
+          "type": "string"
+        },
+        "prosjbrposjetiteljagodisnje": {
+          "type": "integer"
+        },
+        "povrsina": {
+          "type": "integer"
+        },
+        "sluzbenastranica": {
+          "type": "string"
+        },
+        "klima": {
+          "type": "string"
+        },
+        "nativnevrste": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "nazivparka",
+        "datumosnutka",
+        "drzava",
+        "lokacija",
+        "wikipediastranica",
+        "prosjbrposjetiteljagodisnje",
+        "povrsina",
+        "sluzbenastranica",
+        "klima",
+        "nativnevrste",
+        "id"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "nazivparka": {
+          "type": "string"
+        },
+        "datumosnutka": {
+          "type": "string"
+        },
+        "drzava": {
+          "type": "string"
+        },
+        "lokacija": {
+          "type": "string"
+        },
+        "wikipediastranica": {
+          "type": "string"
+        },
+        "prosjbrposjetiteljagodisnje": {
+          "type": "integer"
+        },
+        "povrsina": {
+          "type": "integer"
+        },
+        "sluzbenastranica": {
+          "type": "string"
+        },
+        "klima": {
+          "type": "string"
+        },
+        "nativnevrste": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "nazivparka",
+        "datumosnutka",
+        "drzava",
+        "lokacija",
+        "wikipediastranica",
+        "prosjbrposjetiteljagodisnje",
+        "povrsina",
+        "sluzbenastranica",
+        "klima",
+        "nativnevrste",
+        "id"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "nazivparka": {
+          "type": "string"
+        },
+        "datumosnutka": {
+          "type": "string"
+        },
+        "drzava": {
+          "type": "string"
+        },
+        "lokacija": {
+          "type": "string"
+        },
+        "wikipediastranica": {
+          "type": "string"
+        },
+        "prosjbrposjetiteljagodisnje": {
+          "type": "integer"
+        },
+        "povrsina": {
+          "type": "number"
+        },
+        "sluzbenastranica": {
+          "type": "string"
+        },
+        "klima": {
+          "type": "string"
+        },
+        "nativnevrste": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "nazivparka",
+        "datumosnutka",
+        "drzava",
+        "lokacija",
+        "wikipediastranica",
+        "prosjbrposjetiteljagodisnje",
+        "povrsina",
+        "sluzbenastranica",
+        "klima",
+        "nativnevrste",
+        "id"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "nazivparka": {
+          "type": "string"
+        },
+        "datumosnutka": {
+          "type": "string"
+        },
+        "drzava": {
+          "type": "string"
+        },
+        "lokacija": {
+          "type": "string"
+        },
+        "wikipediastranica": {
+          "type": "string"
+        },
+        "prosjbrposjetiteljagodisnje": {
+          "type": "integer"
+        },
+        "povrsina": {
+          "type": "number"
+        },
+        "sluzbenastranica": {
+          "type": "string"
+        },
+        "klima": {
+          "type": "string"
+        },
+        "nativnevrste": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "nazivparka",
+        "datumosnutka",
+        "drzava",
+        "lokacija",
+        "wikipediastranica",
+        "prosjbrposjetiteljagodisnje",
+        "povrsina",
+        "sluzbenastranica",
+        "klima",
+        "nativnevrste",
+        "id"
+      ]
+    }
+  ]
+}
