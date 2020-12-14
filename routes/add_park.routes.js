@@ -16,7 +16,7 @@ router.get('/', async function (req, res) {
     });
 });
 router.post('/add', async function(req, res){
-    
+    //dodavanje u bazu podataka
 
 })
 module.exports = router;
