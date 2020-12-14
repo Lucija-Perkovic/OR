@@ -8,12 +8,15 @@ router.get('/', async function (req, res) {
     
 
 
-    res.render('datatable', {
-        title: 'Datatable',
-        linkActive: 'datatable',
+    res.render('add_park', {
+        title: 'Add_park',
+        linkActive: 'add_park',
         nac_parkovi: nac_parkovi,
         
     });
 });
+router.post('/add', async function(req, res){
+    
 
+})
 module.exports = router;
