@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ažuriraj park</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Baza podataka nacionalnih parkova">
+        <meta name="author" content="Lucija Perković">
+        <meta name="keywords" content="national parks, nacionalni parkovi, Yellowstone, Plitvička jezera">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet"  type="text/css" href="./styles/main.css">
+    </head>
+    <body>
+        <main>
+            <p class="p">Izaberi atribut koji želiš promijeniti:</p>
+            <div>
+                <select name="search" id="search_id" class="selector">
+                    <option value="nazivparka">Naziv nacionalnog parka</option>
+                    <option value="drzava">Država</option>
+                    <option value="lokacija">Lokacija</option>
+                    <option value="nativnevrste">Nativna vrsta</option>
+                    <option value="klima">Klima</option>
+                    <option value="wikipediastranica">Wiki Handle</option>
+                    <option value="povrsina">Površina</option>
+                    <option value="prosjbrposjetiteljagodisnje">Prosječni broj posjetitelja godišnje</option>
+                    <option value="godinaosnutka">Godina osnutka</option>
+                </select>
+            </div>
+            
+            <div>
+                <p>Input: <input type="text" name="value" placeholder="Unesite vrijednost" class="input_holder" ></p>
+            </div>
+
+            <div>
+                <a href="/update"><input type="button" id="clickme" value="Ažuriraj zapis" class="button"/></a>
+            </div>
+            
+        </main>
+    </body>
+</html>

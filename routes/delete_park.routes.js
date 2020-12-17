@@ -8,18 +8,12 @@ router.get('/', async function (req, res) {
     
 
 
-    res.render('add_park', {
-        title: 'Add_park',
-        linkActive: 'add_park',
+    res.render('delete_park', {
+        title: 'Delete_park',
+        linkActive: 'delete_park',
         nac_parkovi: nac_parkovi,
         
     });
 });
 
-router.post('/add', async function(req, res){
-    //dodavanje u bazu podataka
-    
-    
-
-})
 module.exports = router;
