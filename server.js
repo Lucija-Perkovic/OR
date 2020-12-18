@@ -6,6 +6,7 @@ const datatableRouter = require('./routes/datatable.routes');
 const add_parkRouter = require('./routes/add_park.routes');
 const update_parkRouter = require('./routes/update_park.routes');
 const delete_parkRouter = require('./routes/delete_park.routes');
+const get_parkRouter = require('./routes/get_park.routes');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -17,5 +18,6 @@ app.use('/', datatableRouter);
 app.use('/add_park', add_parkRouter);
 app.use('/update_park', update_parkRouter);
 app.use('/delete_park', delete_parkRouter);
+app.use('/get_park', get_parkRouter);
 
 app.listen(3000);
