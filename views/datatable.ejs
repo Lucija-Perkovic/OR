@@ -7,58 +7,25 @@
         <meta name="author" content="Lucija Perković">
         <meta name="keywords" content="national parks, nacionalni parkovi, Yellowstone, Plitvička jezera">
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet"  type="text/css" href="./styles/main.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="./styles/datatables.css">
+        <link rel="stylesheet" href="./styles/main.css">
+        <script type="text/javascript" charset="utf8" src="./styles/datatables.js"></script>
+        <script>
+            $(document).ready( function () {
+		        $('#myTable').DataTable();
+            } );
+            
+        </script>
     </head>
     <body>
         <main>
-            <h1>Polje za pretragu</h1>
+            <h1>Nacionalni parkovi</h1>
             
-            
-            <input type="text" name="value" placeholder="Unesite vrijednost" class="input_holder" id="myInput"  >
-            <p class="p">Po ovoj vrijednosti će se pretraživati podaci.</p>
-            
-            
-            
-            <select name="search" id="search_id" class="selector">
-                <option value="wildcard">Sva polja (wildcard)</option>
-                <option value="nazivparka">Naziv nacionalnog parka</option>
-                <option value="drzava">Država</option>
-                <option value="lokacija">Lokacija</option>
-                <option value="nativnevrste">Nativna vrsta</option>
-                <option value="klima">Klima</option>
-                <option value="wikipediastranica">Wiki Handle</option>
-                <option value="povrsina">Površina</option>
-                <option value="prosjbrposjetiteljagodisnje">Prosječni broj posjetitelja godišnje</option>
-                <option value="godinaosnutka">Godina osnutka</option>
-            </select>
-            
-            <br><br><br>
-
-            <div>
-                <input type="button" id="clickme" value="Prikaži" class="button" onclick="myFunction()"/>
-            </div>
-
-            <br>
-
-            <div>
-                <a href="/JSONDownload" download="./JSONDownload"><input type="button" class="button" value="JSON Download"></a>
-                <a href="/CSVDownload" ><input type="button" class="button" value="CSV Download"></a>
-            </div>
-
-            <br>
-            
-            <div class="add">
-                <a href="/add_park" ><input type="button" class="button" value="Dodaj nacionalni park"></a>
-                <a href="/delete_park" ><input type="button" class="button" value="Izbriši nacionalni park"></a>
-                <a href="/update_park" ><input type="button" class="button" value="Ažuriraj nacionalni park"></a>
-                <a href="/get_park" ><input type="button" class="button" value="Dohvati nacionalni park"></a>
-            </div>
-
-            <br><br>
-            
-            <table id = "myTable" class="national_parks">
+            <table id = "myTable" class="display">
                 <thead>
-                    <tr class="table_head">
+                    <tr>
                         <th>Naziv parka</th>
                         <th>Godina osnutka</th> 
                         <th>Država</th>
@@ -69,34 +36,46 @@
                         <th>Nativna vrsta</th> 
                         <th>Službena stranica</th>
                         <th>Klima</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <% for (let park of nac_parkovi) { %>
                         
                         <tr>
-                            <th class = "nazivparka"><%=park.nazivparka%></th>
-                            <th class="godinaosnutka"><%=park.godinaosnutka%></th> 
-                            <th class="drzava"><%=park.drzava%></th>
-                            <th class="lokacija"><%=park.lokacija%></th>
-                            <th class="wikipediastranica"><%=park.wikipediastranica%></th> 
-                            <th class="prosjbrposjetiteljagodisnje"><%=park.prosjbrposjetiteljagodisnje%></th>
-                            <th class="povrsina"><%=park.povrsina%></th>
-                            <th class="nativnevrste">
+                            <td><%=park.nazivparka%></td>
+                            <td><%=park.godinaosnutka%></td> 
+                            <td><%=park.drzava%></td>
+                            <td><%=park.lokacija%></td>
+                            <td><%=park.wikipediastranica%></td> 
+                            <td><%=park.prosjbrposjetiteljagodisnje%></td>
+                            <td><%=park.povrsina%></td>
+                            <td>
                                 <% let br = 1 %>
                                 <% for (let vrsta of park.nativnevrste) {%>
                                     <%=br%>. <%=vrsta%>
                                     <%br++%>
                                     <br>
                                 <%}%>
-                            </th> 
-                            <th class="sluzbenastranica"><a href="<%=park.sluzbenastranica%>">link</a></th>
-                            <th class="klima"><%=park.klima%></th> 
+                            </td> 
+                            <td><a href="<%=park.sluzbenastranica%>">link</a></td>
+                            <td><%=park.klima%></td>
+                            <td><input type="button" value="View" class="button button_view" id = "view_click" onclick="openViewForm(this.parentNode.parentNode)"></td>
+                            <td><input type="submit" value="Edit" class="button button_edit" id = "edit_click" onclick="openForm(this.parentNode.parentNode)"></td>
+                            <td><input type="button" value="Delete" class="button button_delete" id = "delete_click" onclick="deleteFunction(this.parentNode.parentNode)"></td>
                         </tr>
                     <% } %>
                 </tbody>
             </table>
             
+            <br>
+            
+            <div>
+                <input type="button" value="Add airport" class="button button_add" id = "add_click" onclick="addFunction(this.parentNode.parentNode)">
+                <a href="airports/JSONDownload" download ><input type="button" value="JSON Download" class="button button_download"></a>
+            </div>
             
         </main>
         <script>

@@ -11,13 +11,23 @@
     </head>
     <body>
         <main>
-            <p>ID parka: <input type="text" name="value" placeholder="Unesite vrijednost" class="input_holder" id="idparka"  ></p>
+            <p>ID parka: <input type="text" name="value" placeholder="Unesite vrijednost" class="input_holder" id="idparka" ></p>
 
             <div>
-                <a href="/getpark"><input type="button" id="clickme" value="Dohvati" class="button"/></a>
+                <input type="button" id="clickme" value="Dohvati" class="button" onclick="myFunction()"/>
             </div>
         </main>
-        
+        <script>
+            function myFunction() {
+                var input, a;
+                input = document.getElementById("idparka");
+                a = document.getElementsByTagName("a");
+                a.href = "/{input}";
+                
+                
+                
+            }    
+        </script>
     </body>
     
 </html>

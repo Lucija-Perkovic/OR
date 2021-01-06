@@ -4,10 +4,12 @@
   "description": "-------------------------------------------\r ##### Version 1.0\r -------------------------------------------\r ##### Hrvatski\r -------------------------------------------\r ##### 1. ProsjBrPosjetiteljaGodisnje je podatak koji sam našla za zadnjih par godina, što više sam pokušala da bude svježije\r ##### 2. Klima je za većinu jako precizna (ako nisam mogla naći točno za park našla sam za područje otprilike gdje se nalazi park)\r ##### 3. Lokacija je atribut koji specificira u kojem dijelu države se nalazi taj nacionalni park\r ##### 4. Ako je datum osnutka 1.1. tada nije specificirano na koji datum je proglašen nacionalnim parkom nego je samo godina specificirana\r ##### 5. Površina je u kilometrima kvadratnima\r ##### 6. Nativna vrsta je vrsta životinje ili biljke koja je ili specifična samo za taj nacionalni park ili živi u tom parku\r -------------------------------------------\r ##### License CC BY\r ###### This license lets others distribute, remix, adapt, and build upon your work, even commercially, as long as they credit you for the original creation. This is the most accommodating of licenses offered. Recommended for maximum dissemination and use of licensed materials.",
   "main": "index.js",
   "dependencies": {
+    "ajax": "0.0.4",
     "datatables.net": "^1.10.22",
     "datatables.net-dt": "^1.10.22",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "jquery": "^3.5.1",
     "pg": "^8.4.2",
     "qrcode": "^1.4.4"
   },
