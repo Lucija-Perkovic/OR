@@ -20,66 +20,300 @@
         </script>
     </head>
     <body>
-        <main>
-            <h1>Nacionalni parkovi</h1>
-            
-            <table id = "myTable" class="display">
-                <thead>
-                    <tr>
-                        <th>Naziv parka</th>
-                        <th>Godina osnutka</th> 
-                        <th>Država</th>
-                        <th>Lokacija</th>
-                        <th>Wikipedia stranica</th> 
-                        <th>Prosječni broj posjetitelja godišnje</th>
-                        <th>Površina (km na kvadrat)</th>
-                        <th>Nativna vrsta</th> 
-                        <th>Službena stranica</th>
-                        <th>Klima</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% let br = 1 %>
+        
+        <h1>Nacionalni parkovi</h1>
+        
+        <table id = "myTable" class="display">
+            <thead>
+                <tr>
+                    <th>Naziv parka</th>
+                    <th>Godina osnutka</th> 
+                    <th>Država</th>
+                    <th>Lokacija</th>
+                    <th>Wikipedia stranica</th> 
+                    <th>Prosječni broj posjetitelja godišnje</th>
+                    <th>Površina (km na kvadrat)</th>
+                    <th>Nativna vrsta</th> 
+                    <th>Službena stranica</th>
+                    <th>Klima</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let br = 1 %>
+                
+                <% for (let park of nac_parkovi) { %>
+                    <% for (let vrsta of park.nativnevrste) {%>
+                        <tr><td><%=park.nazivparka%></td>
+                            <td><%=park.godinaosnutka%></td> 
+                            <td><%=park.drzava%></td>
+                            <td><%=park.lokacija%></td>
+                            <td><%=park.wikipediastranica%></td> 
+                            <td><%=park.prosjbrposjetiteljagodisnje%></td>
+                            <td><%=park.povrsina%></td>
+                            <td><%=vrsta%><%br++%></td> 
+                            <td><a href="<%=park.sluzbenastranica%>">link</a></td>
+                            <td><%=park.klima%></td>
+                            <td><input type="button" value="View" class="button button_view" id = "view_click" onclick="openViewForm(this.parentNode.parentNode)"></td>
+                            <td><input type="submit" value="Edit" class="button button_edit" id = "edit_click" onclick="openForm(this.parentNode.parentNode)"></td>
+                            <td><input type="button" value="Delete" class="button button_delete" id = "delete_click" onclick="deleteFunction(this.parentNode.parentNode)"></td>
+                        </tr>
+                    <% } %>
+                <%}%>
+            </tbody>
+        </table>
+        
+        <br>
+        
+        <div>
+            <input type="button" value="Dodaj nacionalni park" class="button button_add" id = "add_click" onclick="addFunction(this.parentNode.parentNode)">
+            <a href="national_park/JSONDownload" download ><input type="button" value="JSON Download" class="button button_download"></a>
+        </div>
+        
+        <div class="form-popup" id="myForm">
+            <form class="form-container"><fieldset>
+                <legend>Edit national park</legend>
+
+                <label for="naziv_parka"><b>Naziv parka</b></label>
+                <input type="text" id = "naziv_parka" placeholder="Upišite naziv parka" name="naziv_parka" required>
+
+                <label for="godina_osnutka"><b>Godina osnutka</b></label>
+                <input type="text" id = "godina_osnutka" placeholder="Upišite godinu osnutka" name="godina_osnutka" required>
+
+                <label for="drzava"><b>Država</b></label>
+                <input type="text" id = "drzava" placeholder="Upišite državu" name="drzava" required>
+
+                <label for="lokacija"><b>Lokacija</b></label>
+                <input type="text" id = "lokacija" placeholder="Upišite lokaciju" name="lokacija" required>
+
+                <label for="wikipedia_stranica"><b>Wikipedia Stranica</b></label>
+                <input type="text" id = "wikipedia_stranica" placeholder="Upišite Wiki Handle" name="wikipedia_stranica" required>
+
+                <label for="prosj_broj"><b>Prosječni broj posjetitelja godišnja</b></label>
+                <input type="text" id = "prosj_broj" placeholder="Upišite prosječni broj" name="prosj_broj" required>
+
+                <label for="povrsina"><b>Površina</b></label>
+                <input type="text" id = "povrsina" placeholder="Upišite površinu" name="povrsina" required>
+
+                <label for="nativna_vrsta"><b>Nativna vrsta</b></label>
+                <input type="text" id = "nativna_vrsta" placeholder="Upišite nativnu_vrstu" name="nativna_vrsta" required>
+
+                <label for="sluzbena_stranica"><b>Službena stranica</b></label>
+                <input type="text" id = "sluzbena_stranica" placeholder="Link na službenu stranicu" name="sluzbena_stranica" required>
+
+                <label for="klima"><b>Klima</b></label>
+                <input type="text" id = "klima" placeholder="Upišite klimu" name="klima" required>
+
+                <button type="submit" class="button button_add">Save</button>
+                <button type="button" class="button cancel" onclick="closeForm()">Cancel</button>
+            </form>
+        </fieldset>
+                
+           
+        </div>
+        <div class="form-popup" id="myViewForm">
+            <form class="form-container">
+                <fieldset>
+                    <legend>View national park</legend>
+
+                    <label for="naziv_parka"><b>Naziv parka</b></label>
+                    <input type="text" id = "naziv_parka" placeholder="Upišite naziv parka" name="naziv_parka" readonly>
+
+                    <label for="godina_osnutka"><b>Godina osnutka</b></label>
+                    <input type="text" id = "godina_osnutka" placeholder="Upišite godinu osnutka" name="godina_osnutka" readonly>
+
+                    <label for="drzava"><b>Država</b></label>
+                    <input type="text" id = "drzava" placeholder="Upišite državu" name="drzava" readonly>
+
+                    <label for="lokacija"><b>Lokacija</b></label>
+                    <input type="text" id = "lokacija" placeholder="Upišite lokaciju" name="lokacija" readonly>
+
+                    <label for="wikipedia_stranica"><b>Wikipedia Stranica</b></label>
+                    <input type="text" id = "wikipedia_stranica" placeholder="Upišite Wiki Handle" name="wikipedia_stranica" readonly>
+
+                    <label for="prosj_broj"><b>Prosječni broj posjetitelja godišnja</b></label>
+                    <input type="text" id = "prosj_broj" placeholder="Upišite prosječni broj" name="prosj_broj" readonly>
+
+                    <label for="povrsina"><b>Površina</b></label>
+                    <input type="text" id = "povrsina" placeholder="Upišite površinu" name="povrsina" readonly>
+
+                    <label for="nativna_vrsta"><b>Nativna vrsta</b></label>
+                    <input type="text" id = "nativna_vrsta" placeholder="Upišite nativnu_vrstu" name="nativna_vrsta" readonly>
+
+                    <label for="sluzbena_stranica"><b>Službena stranica</b></label>
+                    <input type="text" id = "sluzbena_stranica" placeholder="Link na službenu stranicu" name="sluzbena_stranica" readonly>
+
+                    <label for="klima"><b>Klima</b></label>
+                    <input type="text" id = "klima" placeholder="Upišite klimu" name="klima" readonly>
+
                     
-                    <% for (let park of nac_parkovi) { %>
-                        <% for (let vrsta of park.nativnevrste) {%>
-                            <tr>
-                                <td><%=park.nazivparka%></td>
-                                <td><%=park.godinaosnutka%></td> 
-                                <td><%=park.drzava%></td>
-                                <td><%=park.lokacija%></td>
-                                <td><%=park.wikipediastranica%></td> 
-                                <td><%=park.prosjbrposjetiteljagodisnje%></td>
-                                <td><%=park.povrsina%></td>
-                                <td>
-                                    
-                                        <%=vrsta%>
-                                        <%br++%>
-                                        <br>
-                                    
-                                </td> 
-                                <td><a href="<%=park.sluzbenastranica%>">link</a></td>
-                                <td><%=park.klima%></td>
-                                <td><input type="button" value="View" class="button button_view" id = "view_click" onclick="openViewForm(this.parentNode.parentNode)"></td>
-                                <td><input type="submit" value="Edit" class="button button_edit" id = "edit_click" onclick="openForm(this.parentNode.parentNode)"></td>
-                                <td><input type="button" value="Delete" class="button button_delete" id = "delete_click" onclick="deleteFunction(this.parentNode.parentNode)"></td>
-                            </tr>
-                        <% } %>
-                    <%}%>
-                </tbody>
-            </table>
+                    <button type="button" class="button cancel" onclick="closeForm2()">Natrag</button>
+                </fieldset>
+                
+            </form>
+           
+        </div>
+
+        <div class="form-popup" id="myAddForm">
+            <form class="form-container"><fieldset>
+                <legend>Edit national park</legend>
+
+                <label for="naziv_parka"><b>Naziv parka</b></label>
+                <input type="text" id = "naziv_parka_add" placeholder="Upišite naziv parka" name="naziv_parka" required>
+
+                <label for="godina_osnutka"><b>Godina osnutka</b></label>
+                <input type="text" id = "godina_osnutka_add" placeholder="Upišite godinu osnutka" name="godina_osnutka" required>
+
+                <label for="drzava"><b>Država</b></label>
+                <input type="text" id = "drzava_add" placeholder="Upišite državu" name="drzava" required>
+
+                <label for="lokacija"><b>Lokacija</b></label>
+                <input type="text" id = "lokacija_add" placeholder="Upišite lokaciju" name="lokacija" required>
+
+                <label for="wikipedia_stranica"><b>Wikipedia Stranica</b></label>
+                <input type="text" id = "wikipedia_stranica_add" placeholder="Upišite Wiki Handle" name="wikipedia_stranica" required>
+
+                <label for="prosj_broj"><b>Prosječni broj posjetitelja godišnja</b></label>
+                <input type="text" id = "prosj_broj_add" placeholder="Upišite prosječni broj" name="prosj_broj" required>
+
+                <label for="povrsina"><b>Površina</b></label>
+                <input type="text" id = "povrsina_add" placeholder="Upišite površinu" name="povrsina" required>
+
+                <label for="sluzbena_stranica"><b>Službena stranica</b></label>
+                <input type="text" id = "sluzbena_stranica_add" placeholder="Link na službenu stranicu" name="sluzbena_stranica" required>
+
+                <label for="klima"><b>Klima</b></label>
+                <input type="text" id = "klima_add" placeholder="Upišite klimu" name="klima" required>
+
+                <button type="submit" class="button button_add">Save</button>
+                <button type="button" class="button cancel" onclick="closeForm3()">Cancel</button>
+            </form>
+        </fieldset>
+           
+        </div>
+        
+        <script>
+            function deleteFunction(idid) {
+                
+                var confirm_button = confirm("Are you sure?");
+                nazivParka = id.firstChild.innerHTML;
+                
+                
+                if(confirm_button){
+                    $.ajax({
+                        url: 'datatables/delete/:nazivparka',
+                        data: jQuery.param({ nazivParka: nazivParka}) ,
+                        type: 'DELETE',
+                        
+                        success: function(result) {
+                            console.log(result);
+                        }
+                        
+                    });
+                    location.reload();
+                    
+                }
+                
+            }
+        </script>
+        <script>
+            var airline_id = 0;
+            function openForm(id) {
+                document.getElementById("myForm").style.display = "block";
+                document.getElementById("naziv_parka").value = id.childNodes[0].innerHTML;
+                document.getElementById("godina_osnutka").value = id.childNodes[2].innerHTML;
+                document.getElementById("drzava").value = id.childNodes[4].innerHTML;
+                document.getElementById("lokacija").value = id.childNodes[6].innerHTML;
+                document.getElementById("wikipedia_stranica").value = id.childNodes[8].innerHTML;
+                document.getElementById("prosj_broj").value = id.childNodes[10].innerHTML;
+                document.getElementById("povrsina").value = id.childNodes[12].innerHTML;
+                document.getElementById("nativna_vrsta").value = id.childNodes[14].innerHTML;
+                document.getElementById("klima").value = id.childNodes[18].innerHTML;
+                
+                airline_id = id.firstChild.innerHTML;
+            }
+            document.getElementById("edit_button").addEventListener("click", function() {
+                var airline_name = document.getElementById("airline_name").value;
+                var country_name = document.getElementById("country_name").value;
+                console.log(airline_name);
+                console.log(country_name);
+                console.log(airline_id);
+                $.ajax({
+                        url: 'airlines/edit/:airline_id',
+                        data: jQuery.param({ airline_id: airline_id, airline_name:airline_name, country_name: country_name}) ,
+                        type: 'PUT',
+                        
+                        success: function(result) {
+                            
+                            
+                            
+                        },
+                        error: function(error) {
+                            if(error.responseText == 'Country not in countries.'){
+                                alert("Country not in countries.");
+                            }
+                            
+                        }
+                            
+                        })
+                    event.preventDefault();   
+                    location.reload();
+                   
+                   
+            })
+            function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+            }
             
-            <br>
+        </script>
+        <script>
+            function openViewForm(id) {
+                document.getElementById("myViewForm").style.display = "block";
+                
+                document.getElementById("view_airline_name").value = id.childNodes[2].innerHTML;
+                document.getElementById("view_country_name").value = id.childNodes[4].innerHTML;
+            }
+            function closeForm2() {
+                document.getElementById("myViewForm").style.display = "none";
+            }
+        </script>
+        <script>
+            function addFunction(id) {
+                document.getElementById("myAddForm").style.display = "block";
+            }
+            document.getElementById("add_button").addEventListener("click", function() {
+                var airline_name = document.getElementById("airline_name_add").value;
+                var country_name = document.getElementById("country_name_add").value;
+                
+                $.ajax({
+                        url: 'airlines/add',
+                        data: jQuery.param({ airline_name: airline_name, country_name: country_name}) ,
+                        type: 'POST',
+                        
+                        success: function(result) {
+                            document.getElementById("submit_message").innerHTML = "";
+                            window.location.reload();
+                        },
+                        error: function(error) {
+                            
+                            document.getElementById("submit_message").innerHTML = error.responseText;
+                            document.getElementById("submit_message").style.display = "block";
+                            
+                        }
+                        
+                    })
+                    event.preventDefault();
+                   
+            })
+            function closeForm3() {
+                document.getElementById("myAddForm").style.display = "none";
+            }
             
-            <div>
-                <input type="button" value="Add airport" class="button button_add" id = "add_click" onclick="addFunction(this.parentNode.parentNode)">
-                <a href="airports/JSONDownload" download ><input type="button" value="JSON Download" class="button button_download"></a>
-            </div>
             
-        </main>
+        </script>
+    
         <script>
             
         </script>
