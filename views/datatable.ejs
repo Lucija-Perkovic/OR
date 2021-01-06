@@ -42,31 +42,33 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <% let br = 1 %>
+                    
                     <% for (let park of nac_parkovi) { %>
-                        
-                        <tr>
-                            <td><%=park.nazivparka%></td>
-                            <td><%=park.godinaosnutka%></td> 
-                            <td><%=park.drzava%></td>
-                            <td><%=park.lokacija%></td>
-                            <td><%=park.wikipediastranica%></td> 
-                            <td><%=park.prosjbrposjetiteljagodisnje%></td>
-                            <td><%=park.povrsina%></td>
-                            <td>
-                                <% let br = 1 %>
-                                <% for (let vrsta of park.nativnevrste) {%>
-                                    <%=br%>. <%=vrsta%>
-                                    <%br++%>
-                                    <br>
-                                <%}%>
-                            </td> 
-                            <td><a href="<%=park.sluzbenastranica%>">link</a></td>
-                            <td><%=park.klima%></td>
-                            <td><input type="button" value="View" class="button button_view" id = "view_click" onclick="openViewForm(this.parentNode.parentNode)"></td>
-                            <td><input type="submit" value="Edit" class="button button_edit" id = "edit_click" onclick="openForm(this.parentNode.parentNode)"></td>
-                            <td><input type="button" value="Delete" class="button button_delete" id = "delete_click" onclick="deleteFunction(this.parentNode.parentNode)"></td>
-                        </tr>
-                    <% } %>
+                        <% for (let vrsta of park.nativnevrste) {%>
+                            <tr>
+                                <td><%=park.nazivparka%></td>
+                                <td><%=park.godinaosnutka%></td> 
+                                <td><%=park.drzava%></td>
+                                <td><%=park.lokacija%></td>
+                                <td><%=park.wikipediastranica%></td> 
+                                <td><%=park.prosjbrposjetiteljagodisnje%></td>
+                                <td><%=park.povrsina%></td>
+                                <td>
+                                    
+                                        <%=vrsta%>
+                                        <%br++%>
+                                        <br>
+                                    
+                                </td> 
+                                <td><a href="<%=park.sluzbenastranica%>">link</a></td>
+                                <td><%=park.klima%></td>
+                                <td><input type="button" value="View" class="button button_view" id = "view_click" onclick="openViewForm(this.parentNode.parentNode)"></td>
+                                <td><input type="submit" value="Edit" class="button button_edit" id = "edit_click" onclick="openForm(this.parentNode.parentNode)"></td>
+                                <td><input type="button" value="Delete" class="button button_delete" id = "delete_click" onclick="deleteFunction(this.parentNode.parentNode)"></td>
+                            </tr>
+                        <% } %>
+                    <%}%>
                 </tbody>
             </table>
             
@@ -79,52 +81,7 @@
             
         </main>
         <script>
-            function myFunction() {
-                var input, filter, table, tr, th, i, txtValue, valueSelector;
-                var wildcardSelector = ["nazivparka", "drzava", "lokacija", "wikipediastranica", "nativnevrste", "sluzbenastranica", "klima"];
-                input = document.getElementById("myInput");
-                filter = input.value.toUpperCase();
-                table = document.getElementById("myTable");
-                tr = table.getElementsByTagName("tr");
-                valueSelector = document.getElementById("search_id").value;
-                var hidden;
-                if(valueSelector == "wildcard"){
-                        for (i = 1; i < tr.length; i++) {
-                            for(j = 0; j < 10; j++){
-                                th = tr[i].getElementsByTagName("th")[j];
-                                tr[i].style.display = "none";
-                                  
-                            } 
-                            for(j = 0; j<10;j++){
-                                th = tr[i].getElementsByTagName("th")[j];
-                                
-                                if (th) {
-                                    txtValue = th.textContent || th.innerText;
-                                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                        tr[i].style.display = "";
-                                    } 
-                                    
-                                }  
-                            }      
-                        }
-                    
-                }
-                else{
-                        for (i = 0; i < tr.length; i++) {
-                            th = tr[i].getElementsByClassName(valueSelector)[0];
-                            if (th) {
-                                txtValue = th.textContent || th.innerText;
-                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                    tr[i].style.display = "";
-                                } else {
-                                    tr[i].style.display = "none";
-                                }
-                            }       
-                    }
-                }
-                
-                
-            }
+            
         </script>
     </body>
 </html>
