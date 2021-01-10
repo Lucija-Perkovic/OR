@@ -26,6 +26,7 @@
         <table id = "myTable" class="display">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Naziv parka</th>
                     <th>Godina osnutka</th> 
                     <th>Država</th>
@@ -45,22 +46,23 @@
                 <% let br = 1 %>
                 
                 <% for (let park of nac_parkovi) { %>
-                    <% for (let vrsta of park.nativnevrste) {%>
-                        <tr><td><%=park.nazivparka%></td>
-                            <td><%=park.godinaosnutka%></td> 
-                            <td><%=park.drzava%></td>
-                            <td><%=park.lokacija%></td>
-                            <td><%=park.wikipediastranica%></td> 
-                            <td><%=park.prosjbrposjetiteljagodisnje%></td>
-                            <td><%=park.povrsina%></td>
-                            <td><%=vrsta%><%br++%></td> 
-                            <td><a href="<%=park.sluzbenastranica%>">link</a></td>
-                            <td><%=park.klima%></td>
-                            <td><input type="button" value="View" class="button button_view" id = "view_click" onclick="openViewForm(this.parentNode.parentNode)"></td>
-                            <td><input type="submit" value="Edit" class="button button_edit" id = "edit_click" onclick="openForm(this.parentNode.parentNode)"></td>
-                            <td><input type="button" value="Delete" class="button button_delete" id = "delete_click" onclick="deleteFunction(this.parentNode.parentNode)"></td>
-                        </tr>
-                    <% } %>
+                    
+                    <tr><td><%=park.id%></td>
+                        <td><%=park.nazivparka%></td>
+                        <td><%=park.godinaosnutka%></td> 
+                        <td><%=park.drzava%></td>
+                        <td><%=park.lokacija%></td>
+                        <td><%=park.wikipediastranica%></td> 
+                        <td><%=park.prosjbrposjetiteljagodisnje%></td>
+                        <td><%=park.povrsina%></td>
+                        <td><%=park.nativnavrsta%></td> 
+                        <td><a href="<%=park.sluzbenastranica%>"><%=park.sluzbenastranica%></a></td>
+                        <td><%=park.klima%></td>
+                        <td><input type="button" value="View" class="button button_view" id = "view_click" onclick="openViewForm(this.parentNode.parentNode)"></td>
+                        <td><input type="submit" value="Edit" class="button button_edit" id = "edit_click" onclick="openForm(this.parentNode.parentNode)"></td>
+                        <td><input type="button" value="Delete" class="button button_delete" id = "delete_click" onclick="deleteFunction(this.parentNode.parentNode)"></td>
+                    </tr>
+                   
                 <%}%>
             </tbody>
         </table>
@@ -69,13 +71,14 @@
         
         <div>
             <input type="button" value="Dodaj nacionalni park" class="button button_add" id = "add_click" onclick="addFunction(this.parentNode.parentNode)">
-            <a href="national_park/JSONDownload" download ><input type="button" value="JSON Download" class="button button_download"></a>
+            <a href="/JSONDownload" download ><input type="button" value="JSON Download" class="button button_download"></a>
         </div>
         
         <div class="form-popup" id="myForm">
             <form class="form-container"><fieldset>
                 <legend>Edit national park</legend>
-
+                <label for="id"><b>ID</b></label>
+                <input type="text" id = "id"  name="ID" readonly>
                 <label for="naziv_parka"><b>Naziv parka</b></label>
                 <input type="text" id = "naziv_parka" placeholder="Upišite naziv parka" name="naziv_parka" required>
 
@@ -106,7 +109,7 @@
                 <label for="klima"><b>Klima</b></label>
                 <input type="text" id = "klima" placeholder="Upišite klimu" name="klima" required>
 
-                <button type="submit" class="button button_add">Save</button>
+                <button type="submit" class="button button_add" id = "edit_button">Save</button>
                 <button type="button" class="button cancel" onclick="closeForm()">Cancel</button>
             </form>
         </fieldset>
@@ -119,34 +122,34 @@
                     <legend>View national park</legend>
 
                     <label for="naziv_parka"><b>Naziv parka</b></label>
-                    <input type="text" id = "naziv_parka" placeholder="Upišite naziv parka" name="naziv_parka" readonly>
+                    <input type="text" id = "naziv_parka_view" placeholder="Upišite naziv parka" name="naziv_parka" readonly>
 
                     <label for="godina_osnutka"><b>Godina osnutka</b></label>
-                    <input type="text" id = "godina_osnutka" placeholder="Upišite godinu osnutka" name="godina_osnutka" readonly>
+                    <input type="text" id = "godina_osnutka_view" placeholder="Upišite godinu osnutka" name="godina_osnutka" readonly>
 
                     <label for="drzava"><b>Država</b></label>
-                    <input type="text" id = "drzava" placeholder="Upišite državu" name="drzava" readonly>
+                    <input type="text" id = "drzava_view" placeholder="Upišite državu" name="drzava" readonly>
 
                     <label for="lokacija"><b>Lokacija</b></label>
-                    <input type="text" id = "lokacija" placeholder="Upišite lokaciju" name="lokacija" readonly>
+                    <input type="text" id = "lokacija_view" placeholder="Upišite lokaciju" name="lokacija" readonly>
 
                     <label for="wikipedia_stranica"><b>Wikipedia Stranica</b></label>
-                    <input type="text" id = "wikipedia_stranica" placeholder="Upišite Wiki Handle" name="wikipedia_stranica" readonly>
+                    <input type="text" id = "wikipedia_stranica_view" placeholder="Upišite Wiki Handle" name="wikipedia_stranica" readonly>
 
                     <label for="prosj_broj"><b>Prosječni broj posjetitelja godišnja</b></label>
-                    <input type="text" id = "prosj_broj" placeholder="Upišite prosječni broj" name="prosj_broj" readonly>
+                    <input type="text" id = "prosj_broj_view" placeholder="Upišite prosječni broj" name="prosj_broj" readonly>
 
                     <label for="povrsina"><b>Površina</b></label>
-                    <input type="text" id = "povrsina" placeholder="Upišite površinu" name="povrsina" readonly>
+                    <input type="text" id = "povrsina_view" placeholder="Upišite površinu" name="povrsina" readonly>
 
                     <label for="nativna_vrsta"><b>Nativna vrsta</b></label>
-                    <input type="text" id = "nativna_vrsta" placeholder="Upišite nativnu_vrstu" name="nativna_vrsta" readonly>
+                    <input type="text" id = "nativna_vrsta_view" placeholder="Upišite nativnu_vrstu" name="nativna_vrsta" readonly>
 
                     <label for="sluzbena_stranica"><b>Službena stranica</b></label>
-                    <input type="text" id = "sluzbena_stranica" placeholder="Link na službenu stranicu" name="sluzbena_stranica" readonly>
+                    <input type="text" id = "sluzbena_stranica_view" placeholder="Link na službenu stranicu" name="sluzbena_stranica" readonly>
 
                     <label for="klima"><b>Klima</b></label>
-                    <input type="text" id = "klima" placeholder="Upišite klimu" name="klima" readonly>
+                    <input type="text" id = "klima_view" placeholder="Upišite klimu" name="klima" readonly>
 
                     
                     <button type="button" class="button cancel" onclick="closeForm2()">Natrag</button>
@@ -158,7 +161,7 @@
 
         <div class="form-popup" id="myAddForm">
             <form class="form-container"><fieldset>
-                <legend>Edit national park</legend>
+                <legend>Add national park</legend>
 
                 <label for="naziv_parka"><b>Naziv parka</b></label>
                 <input type="text" id = "naziv_parka_add" placeholder="Upišite naziv parka" name="naziv_parka" required>
@@ -181,13 +184,16 @@
                 <label for="povrsina"><b>Površina</b></label>
                 <input type="text" id = "povrsina_add" placeholder="Upišite površinu" name="povrsina" required>
 
+                <label for="nativna_vrsta"><b>Nativna vrsta</b></label>
+                <input type="text" id = "nativna_vrsta_add" placeholder="Upišite nativnu vrstu" name="nativna_vrsta" required>
+
                 <label for="sluzbena_stranica"><b>Službena stranica</b></label>
                 <input type="text" id = "sluzbena_stranica_add" placeholder="Link na službenu stranicu" name="sluzbena_stranica" required>
 
                 <label for="klima"><b>Klima</b></label>
                 <input type="text" id = "klima_add" placeholder="Upišite klimu" name="klima" required>
 
-                <button type="submit" class="button button_add">Save</button>
+                <button type="submit" class="button button_add" id="add_button">Save</button>
                 <button type="button" class="button cancel" onclick="closeForm3()">Cancel</button>
             </form>
         </fieldset>
@@ -195,16 +201,16 @@
         </div>
         
         <script>
-            function deleteFunction(idid) {
+            function deleteFunction(id) {
                 
                 var confirm_button = confirm("Are you sure?");
-                nazivParka = id.firstChild.innerHTML;
+                id = id.firstChild.innerHTML;
                 
                 
                 if(confirm_button){
                     $.ajax({
-                        url: 'datatables/delete/:nazivparka',
-                        data: jQuery.param({ nazivParka: nazivParka}) ,
+                        url: '/delete/:id',
+                        data: jQuery.param({ id: id}) ,
                         type: 'DELETE',
                         
                         success: function(result) {
@@ -219,30 +225,41 @@
             }
         </script>
         <script>
-            var airline_id = 0;
             function openForm(id) {
                 document.getElementById("myForm").style.display = "block";
-                document.getElementById("naziv_parka").value = id.childNodes[0].innerHTML;
-                document.getElementById("godina_osnutka").value = id.childNodes[2].innerHTML;
-                document.getElementById("drzava").value = id.childNodes[4].innerHTML;
-                document.getElementById("lokacija").value = id.childNodes[6].innerHTML;
-                document.getElementById("wikipedia_stranica").value = id.childNodes[8].innerHTML;
-                document.getElementById("prosj_broj").value = id.childNodes[10].innerHTML;
-                document.getElementById("povrsina").value = id.childNodes[12].innerHTML;
-                document.getElementById("nativna_vrsta").value = id.childNodes[14].innerHTML;
-                document.getElementById("klima").value = id.childNodes[18].innerHTML;
+                document.getElementById("id").value = id.childNodes[0].innerHTML;
+
+                document.getElementById("naziv_parka").value = id.childNodes[2].innerHTML;
+                document.getElementById("godina_osnutka").value = id.childNodes[4].innerHTML;
+                document.getElementById("drzava").value = id.childNodes[6].innerHTML;
+                document.getElementById("lokacija").value = id.childNodes[8].innerHTML;
+                document.getElementById("wikipedia_stranica").value = id.childNodes[10].innerHTML;
+                document.getElementById("prosj_broj").value = id.childNodes[12].innerHTML;
+                document.getElementById("povrsina").value = id.childNodes[14].innerHTML;
+                document.getElementById("nativna_vrsta").value = id.childNodes[16].innerHTML;
+                document.getElementById("sluzbena_stranica").value = id.childNodes[18].innerText;
+                document.getElementById("klima").value = id.childNodes[20].innerHTML;
                 
-                airline_id = id.firstChild.innerHTML;
+                
             }
+            
             document.getElementById("edit_button").addEventListener("click", function() {
-                var airline_name = document.getElementById("airline_name").value;
-                var country_name = document.getElementById("country_name").value;
-                console.log(airline_name);
-                console.log(country_name);
-                console.log(airline_id);
+                var id = document.getElementById("id").value;
+                var naziv_parka = document.getElementById("naziv_parka").value;
+                var godina_osnutka = document.getElementById("godina_osnutka").value;
+                var drzava = document.getElementById("drzava").value;
+                var lokacija = document.getElementById("lokacija").value;
+                var wikipedia_stranica = document.getElementById("wikipedia_stranica").value;
+                var prosj_broj = document.getElementById("prosj_broj").value;
+                var povrsina = document.getElementById("povrsina").value;
+                var nativna_vrsta = document.getElementById("nativna_vrsta").value;
+                var klima = document.getElementById("klima").value;
+                var sluzbena_stranica = document.getElementById("sluzbena_stranica").value;
+                console.log(id);
                 $.ajax({
-                        url: 'airlines/edit/:airline_id',
-                        data: jQuery.param({ airline_id: airline_id, airline_name:airline_name, country_name: country_name}) ,
+                        url: '/edit/:id',
+                        data: jQuery.param({ id:id,naziv_parka: naziv_parka, godina_osnutka:godina_osnutka, drzava: drzava, lokacija: lokacija, 
+                            wikipedia_stranica: wikipedia_stranica, prosj_broj: prosj_broj, povrsina: povrsina, nativna_vrsta: nativna_vrsta, klima: klima, sluzbena_stranica:sluzbena_stranica}) ,
                         type: 'PUT',
                         
                         success: function(result) {
@@ -251,18 +268,18 @@
                             
                         },
                         error: function(error) {
-                            if(error.responseText == 'Country not in countries.'){
-                                alert("Country not in countries.");
-                            }
+                            
                             
                         }
                             
                         })
                     event.preventDefault();   
                     location.reload();
-                   
-                   
-            })
+                    
+                
+        })
+            
+            
             function closeForm() {
                 document.getElementById("myForm").style.display = "none";
             }
@@ -283,30 +300,39 @@
             function addFunction(id) {
                 document.getElementById("myAddForm").style.display = "block";
             }
-            document.getElementById("add_button").addEventListener("click", function() {
-                var airline_name = document.getElementById("airline_name_add").value;
-                var country_name = document.getElementById("country_name_add").value;
+            
+            add_button.addEventListener("click", function() {
+                var naziv_parka = document.getElementById("naziv_parka_add").value;
+                var godina_osnutka = document.getElementById("godina_osnutka_add").value;
+                var drzava = document.getElementById("drzava_add").value;
+                var lokacija = document.getElementById("lokacija_add").value;
+                var wikipedia_stranica = document.getElementById("wikipedia_stranica_add").value;
+                var prosj_broj = document.getElementById("prosj_broj_add").value;
+                var povrsina = document.getElementById("povrsina_add").value;
+                var nativna_vrsta = document.getElementById("nativna_vrsta_add").value;
+                var klima = document.getElementById("klima_add").value;
+                var sluzbena_stranica = document.getElementById("sluzbena_stranica_add").value;
                 
                 $.ajax({
-                        url: 'airlines/add',
-                        data: jQuery.param({ airline_name: airline_name, country_name: country_name}) ,
+                        url: '/add',
+                        data: jQuery.param({naziv_parka: naziv_parka, godina_osnutka:godina_osnutka, drzava: drzava, lokacija: lokacija, 
+                            wikipedia_stranica: wikipedia_stranica, prosj_broj: prosj_broj, povrsina: povrsina, nativna_vrsta: nativna_vrsta, klima: klima, sluzbena_stranica:sluzbena_stranica }) ,
                         type: 'POST',
                         
                         success: function(result) {
-                            document.getElementById("submit_message").innerHTML = "";
-                            window.location.reload();
+                            
                         },
                         error: function(error) {
                             
-                            document.getElementById("submit_message").innerHTML = error.responseText;
-                            document.getElementById("submit_message").style.display = "block";
+                            
                             
                         }
                         
                     })
                     event.preventDefault();
-                   
-            })
+                    location.reload();
+        })
+            
             function closeForm3() {
                 document.getElementById("myAddForm").style.display = "none";
             }
