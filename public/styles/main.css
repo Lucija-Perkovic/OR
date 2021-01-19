@@ -143,3 +143,7 @@ input[type=text]:focus {
     color: honeydew;
     
 }
+img {
+  max-width: 100%;
+  height: auto;
+}

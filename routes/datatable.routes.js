@@ -27,6 +27,7 @@ router.delete('/delete/:id', async function(req,res){
     db.query(`DELETE FROM nacionalni_parkovi WHERE id = $1`, [id]);
 
 })
+ 
 
 
 router.put('/edit/:id', async function(req,res){
